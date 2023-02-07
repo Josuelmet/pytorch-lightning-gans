@@ -197,7 +197,7 @@ class WGANGP(LightningModule):
         dataset = MNIST(os.getcwd(), train=True, download=True, transform=transform)
         return DataLoader(dataset, batch_size=self.batch_size)
 
-    def on_epoch_end(self):
+    def training_epoch_end(self):
         z = self.validation_z.to(self.device)
 
         # log sampled images
